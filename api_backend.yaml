@@ -1,0 +1,204 @@
+openapi: 3.0.0
+info:
+  title: AgroLens API - Diagnóstico de pragas por imagem e recomendação de tratamento.
+  description: |-
+     Esta API permite o envio de imagens de folhas de plantas para a análise de pragas e infecções. Também é possível consultar o nome científico de uma praga para receber uma recomendação para o tratamento da praga.
+  contact:
+    email: developers@hackatonagrolens.com.br
+  version: 0.0.1
+externalDocs:
+  description: Saiba mais sobre o projeto
+  url: https://tbd.agrolens.hackaton.com/apis
+servers:
+  - url: https://tbd.agrolens.hackaton.com/v1
+tags:
+  - name: Diagnostico
+    description: Endpoints para o diagnóstico de plantas.
+  - name: Tratamento
+    description: Endpoints para recomendações de tratamento.
+paths:
+  /imageDiagnosis:
+    post:
+      tags:
+        - Diagnostico
+      summary: Obtém uma diagnóstico baseado na imagem de entrada.
+      description: Obtém o nome científico da praga presente na imagem enviada, assim como uma descrição da praga e como ela costuma agir.
+      operationId: getDiagnosticFromImage
+      parameters:
+        - in: query
+          name: nomeProduto
+          description: Nome do produto.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+              description: Imagem a ser analisada.
+          image/png:
+            schema:
+              type: string
+              format: binary
+              description: Imagem a ser analisada.
+      responses:
+        "200":
+          description: Análise bem sucedida.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/diagnosis"
+        "401":
+          description: Não autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/commonError"
+              example:
+                code: 401
+                datetime: "2025-22-10T12:00:00Z"
+                message: "Não autorizado"
+                details: "Não autorizado"
+        "403":
+          description: Proibido para esse recurso.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/commonError"
+              example:
+                code: 403
+                datetime: "2025-22-10T12:00:00Z"
+                message: "Proibido"
+                details: "Proibido para esse recurso."
+        "404":
+          description: Praga não encontrada na nossa base de dados.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/commonError"
+              example:
+                code: 404
+                datetime: "2025-22-10T12:00:00Z"
+                message: "Praga não encontrada na nossa base de dados."
+                details: "Não foi possível encontrar a Praga no nosso banco de dados."
+        "500":
+          description: Erro Interno.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/commonError"
+              example:
+                code: 500
+                datetime: "2025-22-10T12:00:00Z"
+                message: "Erro interno"
+                details: "Erro interno no servidor."
+  
+  /treatment:
+    get:
+      tags:
+        - Tratamento
+      summary: Obtém um tratamento recomendado para a praga.
+      description: Obtém uma sugestão de tratamento para a praga enviada como input.
+      operationId: getRecomendedTreatment
+      parameters:
+        - in: query
+          name: diseaseName
+          description: Nome científico da praga folhar.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Análise bem sucedida.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/diagnosis"
+        "401":
+          description: Não autorizado.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/commonError"
+              example:
+                code: 401
+                datetime: "2025-22-10T12:00:00Z"
+                message: "Não autorizado"
+                details: "Não autorizado"
+        "403":
+          description: Proibido para esse recurso.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/commonError"
+              example:
+                code: 403
+                datetime: "2025-22-10T12:00:00Z"
+                message: "Proibido"
+                details: "Proibido para esse recurso."
+        "404":
+          description: Praga não encontrada na nossa base de dados.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/commonError"
+              example:
+                code: 404
+                datetime: "2025-22-10T12:00:00Z"
+                message: "Praga não encontrada na nossa base de dados."
+                details: "Não foi possível encontrar a Praga no nosso banco de dados."
+        "500":
+          description: Erro Interno.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/commonError"
+              example:
+                code: 500
+                datetime: "2025-22-10T12:00:00Z"
+                message: "Erro interno"
+                details: "Erro interno no servidor."
+
+components:
+  schemas:
+    diagnosis:
+      type: object
+      properties:
+        scientificName:
+          type: string
+          example: "Venturia inaequalis"
+        commonName:
+          type: string
+          example: "Sarna da macieira"
+        description:
+          type: string
+          example: "Os sintomas são mais facilmente reconhecidos nas folhas e frutos. Lesões novas apresentam coloração verde-olivácio que se desenvolve para lesões mais escuras e de aspecto aveludado, com bordos irregulares. Em lesões mais velhas as folhas podem ficar deformadas, inchadas e curvadas. Em alta severidade as folhas podem secar e cair precocemente. Os frutos podem ser infectados durante todo o seu período de desenvolvimento. Quando a infecção ocorre em frutos jovens a formação de lesão superficial de coloração marrom-esverdadas. Com o tempo essas lesões escurecem e adquirem aspecto de cortiça e racham a medida que ocorre o crescimento dos frutos."
+    treatment:
+      type: object
+    commonError:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: 404
+        datetime:
+          type: string
+          format: date-time
+        message:
+          type: string
+          example: Produto não encontrado
+        details:
+          type: string
+          example: Detalhes adicionais sobre o erro ocorrido.
