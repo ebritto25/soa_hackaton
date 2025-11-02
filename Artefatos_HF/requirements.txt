@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+tensorflow==2.10.1
+numpy<2.0
+Pillow
+httpx
+PyYAML
+python-multipart
