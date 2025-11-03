@@ -24,12 +24,6 @@ paths:
       summary: Obtém uma diagnóstico baseado na imagem de entrada.
       description: Obtém o nome científico da praga presente na imagem enviada, assim como uma descrição da praga e como ela costuma agir.
       operationId: getDiagnosticFromImage
-      parameters:
-        - in: query
-          name: nomeProduto
-          description: Nome do produto.
-          schema:
-            type: string
       requestBody:
         required: true
         content:
