@@ -18,6 +18,7 @@ class Diagnosis(BaseModel):
     scientificName: str
     commonName: str
     description: str
+    confidence: float
 
 class CommonError(BaseModel):
     code: int
@@ -108,6 +109,7 @@ async def image_diagnosis(file: UploadFile = File(...)):
         predictions = model.predict(img_array)
         predicted_class = np.argmax(predictions[0])
         predicted_class_name = class_names[predicted_class]
+        confidence_class = float(predictions[0][predicted_class])
     except Exception as e:
         raise HTTPException(status_code=500, detail=error_response(500, "Erro interno", "Erro interno no servidor.").dict())
 
@@ -119,7 +121,8 @@ async def image_diagnosis(file: UploadFile = File(...)):
     return Diagnosis(
         scientificName=disease_info.get("scientific_name", "N/A"),
         commonName=predicted_class_name,
-        description=disease_info.get("description", "N/A")
+        description=disease_info.get("description", "N/A"),
+        confidence=confidence_class
     )
 
 @app.get("/treatment", responses={401: {"model": CommonError}, 403: {"model": CommonError}, 404: {"model": CommonError}, 500: {"model": CommonError}})
