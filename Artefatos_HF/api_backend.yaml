@@ -6,11 +6,8 @@ info:
   contact:
     email: developers@hackatonagrolens.com.br
   version: 0.0.1
-externalDocs:
-  description: Saiba mais sobre o projeto
-  url: https://tbd.agrolens.hackaton.com/apis
 servers:
-  - url: https://tbd.agrolens.hackaton.com/v1
+  - url: https://leonardo-cerce-agrolens.hf.space
 tags:
   - name: Diagnostico
     description: Endpoints para o diagnóstico de plantas.
@@ -172,12 +169,18 @@ components:
         scientificName:
           type: string
           example: "Venturia inaequalis"
+        crop:
+          type: string
+          example: "Maçã"
         commonName:
           type: string
           example: "Sarna da macieira"
         description:
           type: string
           example: "Os sintomas são mais facilmente reconhecidos nas folhas e frutos. Lesões novas apresentam coloração verde-olivácio que se desenvolve para lesões mais escuras e de aspecto aveludado, com bordos irregulares. Em lesões mais velhas as folhas podem ficar deformadas, inchadas e curvadas. Em alta severidade as folhas podem secar e cair precocemente. Os frutos podem ser infectados durante todo o seu período de desenvolvimento. Quando a infecção ocorre em frutos jovens a formação de lesão superficial de coloração marrom-esverdadas. Com o tempo essas lesões escurecem e adquirem aspecto de cortiça e racham a medida que ocorre o crescimento dos frutos."
+        confidence:
+          type: number
+          example: 0.9999
     treatment:
       type: object
     commonError:
