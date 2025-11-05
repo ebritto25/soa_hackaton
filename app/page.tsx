@@ -10,6 +10,8 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any | null>(null);
   const [nomeDoenca, setNomeDoenca] = useState<string | null>(null);
+  const [cultura, setCultura] = useState<string | null>(null);
+  const [confiabilidade, setConfiabilidade] = useState<number | null>(null);
   const [commonName, setCommonName] = useState<string | null>(null);
   const [descDoenca, setDescDoenca] = useState<string | null>(null);
   const [tratamentos, setTratamentos] = useState<any[]>([]);
@@ -23,6 +25,8 @@ export default function Home() {
       setPreview(URL.createObjectURL(file));
       setResult(null);
       setNomeDoenca(null);
+      setConfiabilidade(null);
+      setCultura(null);
       setCommonName(null);
       setDescDoenca(null);
       setTratamentos([]);
@@ -34,6 +38,8 @@ export default function Home() {
 
   // 🔍 Função principal de diagnóstico e tratamento
   const handleSearchDisease = async () => {
+    let alerta = "Erro ao processar a imagem!";
+
     if (!selectedImage) {
       alert("Carregue uma imagem primeiro!");
       return;
@@ -42,6 +48,8 @@ export default function Home() {
     setLoading(true);
     setResult(null);
     setNomeDoenca(null);
+    setConfiabilidade(null);
+    setCultura(null);
     setCommonName(null);
     setDescDoenca(null);
     setTratamentos([]);
@@ -61,12 +69,19 @@ export default function Home() {
         }
       );
 
-      if (!response.ok) throw new Error("Erro ao processar a imagem");
-
       const data = await response.json();
 
-      setResult(data.resultado || "Análise concluída.");
+      if (response.ok) {
+        alerta = "Análise concluída.";
+        if (data.scientificName == "Saudável") alerta = "Planta está saudável.";
+      } else {
+        alerta = response.statusText;
+      }
+
+      setResult(data.resultado || alerta);
       setNomeDoenca(data.scientificName || "—");
+      setCultura(data.crop || "—");
+      setConfiabilidade(data.confidence || "—");
       setCommonName(data.commonName || "—");
       setDescDoenca(data.description || "—");
 
@@ -74,7 +89,8 @@ export default function Home() {
       if (
         data.scientificName &&
         data.scientificName.trim() !== "" &&
-        data.scientificName !== "-"
+        data.scientificName !== "-" &&
+        data.scientificName !== "Saudável"
       ) {
         const encodedName = encodeURIComponent(data.scientificName);
         const treatmentUrl = `https://leonardo-cerce-agrolens.hf.space/treatment?diseaseName=${encodedName}`;
@@ -85,7 +101,7 @@ export default function Home() {
         });
 
         if (!treatmentResponse.ok) {
-          throw new Error("Erro ao buscar tratamento");
+          alert("Erro ao buscar tratamento!");
         }
 
         const treatmentData = await treatmentResponse.json();
@@ -130,7 +146,12 @@ export default function Home() {
     if (tratamentoIndex > 0) setTratamentoIndex(tratamentoIndex - 1);
   };
 
-  const { marca_comercial, numero_registro, url_agrofit, ...descricaotratamento } = tratamentoAtual || {};
+  const {
+    marca_comercial,
+    numero_registro,
+    url_agrofit,
+    ...descricaotratamento
+  } = tratamentoAtual || {};
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-b from-blue-50 to-blue-100">
@@ -220,33 +241,32 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* 🧠 Nome da doença */}
-        {nomeDoenca && (
+        {/* 🧠 Identificação da Doença */}
+        {nomeDoenca && cultura && commonName && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-blue-50 border border-blue-200 rounded-xl p-3 text-left"
+            className="mt-3 bg-gradient-to-r from-blue-100 to-indigo-50 border border-blue-200 rounded-xl p-3 text-left"
           >
-            <h2 className="text-lg text-gray-500">Nome da Doença:</h2>
-            <p className="text-base font-semibold text-blue-700">
-              {nomeDoenca}
-            </p>
-          </motion.div>
-        )}
+            <div className="flex items-center space-x-2">
+              <h2 className="text-xl text-gray-500">Nome da cultura:</h2>
+              <p className="text-lg font-semibold text-blue-700">{cultura}</p>
+            </div>
 
-        {/* 🧠 Nome comum doença */}
-        {commonName && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mt-3 bg-blue-50 border border-blue-200 rounded-xl p-3 text-left"
-          >
-            <h2 className="text-lg text-gray-500">Nome comum da Doença:</h2>
-            <p className="text-base font-semibold text-blue-700">
-              {commonName}
-            </p>
+            <div className="flex items-center space-x-2">
+              <h2 className="text-xl text-gray-500">Nome da doença:</h2>
+              <p className="text-lg font-semibold text-blue-700">
+                {nomeDoenca}
+              </p>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <h2 className="text-xl text-gray-500">Nome comum da Doença:</h2>
+              <p className="text-lg font-semibold text-blue-700">
+                {commonName}
+              </p>
+            </div>
           </motion.div>
         )}
 
@@ -256,15 +276,28 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="mt-3 bg-gradient-to-r from-green-100 to-blue-50  border border-green-200 rounded-xl p-3 text-left"
+            className="mt-3 bg-gradient-to-r from-green-100 to-indigo-50  border border-green-200 rounded-xl p-3 text-left"
           >
-            <h2 className="text-lg text-gray-500">Descrição da Doença:</h2>
-            <p className="text-base font-medium text-green-700">{descDoenca}</p>
+            <h2 className="text-xl text-gray-500">Descrição da Doença:</h2>
+            <p className="text-lg font-medium text-green-700">{descDoenca}</p>
+          </motion.div>
+        )}
+
+        {/* 🧠 Confiabilidade */}
+        {confiabilidade && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="mt-3 bg-gradient-to-r from-green-100 to-blue-100 border border-blue-200 rounded-xl p-3 text-left"
+          >
+            <h2 className="text-xl text-center text-black font-semibold">
+              Confiabilidade: {confiabilidade.toFixed(6)}
+            </h2>
           </motion.div>
         )}
 
         {/* Tratamento */}
-
         {tratamentoAtual && (
           <motion.div
             key={`tratamento-${tratamentoIndex}`}
@@ -275,7 +308,7 @@ export default function Home() {
             className="text-left mt-6"
           >
             {/* Header com informações do tratamento */}
-            <div className="bg-gradient-to-r from-yellow-100 to-indigo-50 rounded-lg p-4 mb-4 border border-blue-100">
+            <div className="bg-gradient-to-r from-orange-100 to-indigo-50 rounded-lg p-4 mb-4 border border-blue-100">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-lg text-gray-600">
@@ -285,9 +318,9 @@ export default function Home() {
                     href={tratamentoAtual.url_agrofit}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xl font-bold text-gray-800 mb-1 hover:underline"
+                    className="text-xl font-bold text-blue-600 hover:underline hover:text-blue-800"
                   >
-                    {tratamentoAtual.marca_comercial}
+                    🔗{tratamentoAtual.marca_comercial}
                   </a>
                 </div>
                 <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
@@ -317,7 +350,6 @@ export default function Home() {
                 </h3>
               </div>
               <div className="max-h-[50vh] overflow-y-auto p-4">
-             
                 <ReactJson
                   src={descricaotratamento}
                   theme="atom"
