@@ -262,7 +262,7 @@ export default function Home() {
             </div>
 
             <div className="flex items-center space-x-2">
-              <h2 className="text-xl text-gray-500">Nome comum da Doença:</h2>
+              <h2 className="text-xl text-gray-500">Nome comum da doença:</h2>
               <p className="text-lg font-semibold text-blue-700">
                 {commonName}
               </p>
@@ -278,7 +278,7 @@ export default function Home() {
             transition={{ delay: 0.3 }}
             className="mt-3 bg-gradient-to-r from-green-100 to-indigo-50  border border-green-200 rounded-xl p-3 text-left"
           >
-            <h2 className="text-xl text-gray-500">Descrição da Doença:</h2>
+            <h2 className="text-xl text-gray-500">Descrição da doença:</h2>
             <p className="text-lg font-medium text-green-700">{descDoenca}</p>
           </motion.div>
         )}
@@ -292,7 +292,7 @@ export default function Home() {
             className="mt-3 bg-gradient-to-r from-green-100 to-blue-100 border border-blue-200 rounded-xl p-3 text-left"
           >
             <h2 className="text-xl text-center text-black font-semibold">
-              Confiabilidade: {confiabilidade.toFixed(6)}
+              Confiabilidade do modelo: {confiabilidade.toFixed(6)}
             </h2>
           </motion.div>
         )}
@@ -311,7 +311,7 @@ export default function Home() {
             <div className="bg-gradient-to-r from-orange-100 to-indigo-50 rounded-lg p-4 mb-4 border border-blue-100">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-lg text-gray-600">
+                  <p className="text-xl text-gray-600">
                     Tratamento com marca comercial:
                   </p>
                   <a
