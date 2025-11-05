@@ -16,6 +16,7 @@ from pydantic import BaseModel
 # Schemas do YAML
 class Diagnosis(BaseModel):
     scientificName: str
+    crop: str
     commonName: str
     description: str
     confidence: float
@@ -120,7 +121,8 @@ async def image_diagnosis(file: UploadFile = File(...)):
         
     return Diagnosis(
         scientificName=disease_info.get("scientific_name", "N/A"),
-        commonName=predicted_class_name,
+        commonName=disease_info.get("commonName", "N/A"),
+        crop=disease_info.get("crop", "N/A"),
         description=disease_info.get("description", "N/A"),
         confidence=confidence_class
     )

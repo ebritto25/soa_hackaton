@@ -1,154 +1,230 @@
 {
   "Apple___Apple_scab": {
     "scientific_name": "Venturia inaequalis",
-    "description": "Doença fúngica que causa lesões escuras e crostosas em folhas, frutos e galhos. Reduz a qualidade dos frutos e o vigor da árvore."
+    "description": "Doença fúngica que causa lesões escuras e crostosas em folhas, frutos e galhos. Reduz a qualidade dos frutos e o vigor da árvore.",
+    "crop": "Maçã",
+    "commonName": "Sarna da macieira"
   },
   "Apple___Black_rot": {
     "scientific_name": "Botryosphaeria obtusa",
-    "description": "Doença fúngica que causa manchas foliares, podridão de frutos e cancros nos ramos. Os frutos desenvolvem áreas pretas e podres características."
+    "description": "Doença fúngica que causa manchas foliares, podridão de frutos e cancros nos ramos. Os frutos desenvolvem áreas pretas e podres características.",
+    "crop": "Maçã",
+    "commonName": "Podridão-negra da macieira"
   },
   "Apple___Cedar_apple_rust": {
     "scientific_name": "Gymnosporangium juniperi-virginianae",
-    "description": "Doença fúngica que se utiliza de macieiras e cedros para completar seu ciclo de vida. Causa manchas alaranjadas em folhas e frutos."
+    "description": "Doença fúngica que se utiliza de macieiras e cedros para completar seu ciclo de vida. Causa manchas alaranjadas em folhas e frutos.",
+    "crop": "Maçã",
+    "commonName": "Ferrugem do cedro-maçã"
   },
   "Apple___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Maçã",
+    "commonName": "Saudável"
   },
   "Blueberry___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Mirtilo",
+    "commonName": "Saudável"
   },
   "Cherry_(including_sour)___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Cereja (incluindo ácida)",
+    "commonName": "Saudável"
   },
   "Cherry_(including_sour)___Powdery_mildew": {
     "scientific_name": "Podosphaera clandestina",
-    "description": "Doença fúngica que cria revestimento pulverulento branco em folhas, brotos e frutos. Reduz a fotossíntese e a qualidade dos frutos."
+    "description": "Doença fúngica que cria revestimento pulverulento branco em folhas, brotos e frutos. Reduz a fotossíntese e a qualidade dos frutos.",
+    "crop": "Cereja (incluindo ácida)",
+    "commonName": "Oídio da cerejeira"
   },
   "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
     "scientific_name": "Cercospora zeae-maydis",
-    "description": "Doença fúngica que causa lesões retangulares cinza-marrom nas folhas. Pode reduzir significativamente a produtividade em híbridos suscetíveis."
+    "description": "Doença fúngica que causa lesões retangulares cinza-marrom nas folhas. Pode reduzir significativamente a produtividade em híbridos suscetíveis.",
+    "crop": "Milho",
+    "commonName": "Cercosporiose"
   },
   "Corn_(maize)___Common_rust_": {
     "scientific_name": "Puccinia sorghi",
-    "description": "Doença fúngica que produz pústulas cor de ferrugem nas folhas. Mais comum em condições frescas e úmidas."
+    "description": "Doença fúngica que produz pústulas cor de ferrugem nas folhas. Mais comum em condições frescas e úmidas.",
+    "crop": "Milho",
+    "commonName": "Ferrugem comum do milho"
   },
   "Corn_(maize)___Northern_Leaf_Blight": {
     "scientific_name": "Exserohilum turcicum",
-    "description": "Doença fúngica que causa lesões longas em forma de charuto cinza-esverdeado nas folhas. Pode causar perda significativa de produtividade."
+    "description": "Doença fúngica que causa lesões longas em forma de charuto cinza-esverdeado nas folhas. Pode causar perda significativa de produtividade.",
+    "crop": "Milho",
+    "commonName": "Helmintosporiose do milho"
   },
   "Corn_(maize)___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Milho",
+    "commonName": "Saudável"
   },
   "Grape___Black_rot": {
     "scientific_name": "Guignardia bidwellii",
-    "description": "Doença fúngica que afeta folhas, brotos e frutos. As uvas encolhem e se transformam em múmias pretas e duras."
+    "description": "Doença fúngica que afeta folhas, brotos e frutos. As uvas encolhem e se transformam em múmias pretas e duras.",
+    "crop": "Uva",
+    "commonName": "Podridão-negra da videira"
   },
   "Grape___Esca_(Black_Measles)": {
     "scientific_name": "Phaeomoniella chlamydospora",
-    "description": "Doença fúngica complexa que causa listras nas folhas e manchas nas bagas. Pode levar ao colapso repentino da videira."
+    "description": "Doença fúngica complexa que causa listras nas folhas e manchas nas bagas. Pode levar ao colapso repentino da videira.",
+    "crop": "Uva",
+    "commonName": "Esca (Sarampo-preto)"
   },
   "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
     "scientific_name": "Pseudocercospora vitis",
-    "description": "Doença fúngica que causa manchas marrons angulares nas folhas. Comum em climas quentes e úmidos."
+    "description": "Doença fúngica que causa manchas marrons angulares nas folhas. Comum em climas quentes e úmidos.",
+    "crop": "Uva",
+    "commonName": "Mancha-foliar-de-isariopsis"
   },
   "Grape___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Uva",
+    "commonName": "Saudável"
   },
   "Orange___Haunglongbing_(Citrus_greening)": {
     "scientific_name": "Candidatus Liberibacter asiaticus",
-    "description": "Doença bacteriana transmitida por psilídeos. Causa amarelecimento, frutos deformados e declínio da árvore. A doença mais grave dos citros."
+    "description": "Doença bacteriana transmitida por psilídeos. Causa amarelecimento, frutos deformados e declínio da árvore. A doença mais grave dos citros.",
+    "crop": "Laranja",
+    "commonName": "Greening (HLB)"
   },
   "Peach___Bacterial_spot": {
     "scientific_name": "Xanthomonas arboricola pv. pruni",
-    "description": "Doença bacteriana que causa manchas escuras em frutos, folhas e galhos. Reduz a qualidade e comercialização dos frutos."
+    "description": "Doença bacteriana que causa manchas escuras em frutos, folhas e galhos. Reduz a qualidade e comercialização dos frutos.",
+    "crop": "Pêssego",
+    "commonName": "Mancha-bacteriana do pessegueiro"
   },
   "Peach___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Pêssego",
+    "commonName": "Saudável"
   },
   "Pepper,_bell___Bacterial_spot": {
     "scientific_name": "Xanthomonas campestris pv. vesicatoria",
-    "description": "Doença bacteriana que causa manchas escuras e elevadas em folhas e frutos. Pode causar perda significativa de produtividade."
+    "description": "Doença bacteriana que causa manchas escuras e elevadas em folhas e frutos. Pode causar perda significativa de produtividade.",
+    "crop": "Pimentão",
+    "commonName": "Mancha-bacteriana do pimentão"
   },
   "Pepper,_bell___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Pimentão",
+    "commonName": "Saudável"
   },
   "Potato___Early_blight": {
     "scientific_name": "Alternaria solani",
-    "description": "Doença fúngica que causa lesões em formato de alvo nas folhas mais velhas. Pode reduzir a produtividade e qualidade dos tubérculos."
+    "description": "Doença fúngica que causa lesões em formato de alvo nas folhas mais velhas. Pode reduzir a produtividade e qualidade dos tubérculos.",
+    "crop": "Batata",
+    "commonName": "Pinta-preta (Requeima-precoce)"
   },
   "Potato___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Batata",
+    "commonName": "Saudável"
   },
   "Potato___Late_blight": {
     "scientific_name": "Phytophthora infestans",
-    "description": "Doença oomiceto que causa lesões encharcadas em folhas e tubérculos. Historicamente devastadora, causou a Grande Fome Irlandesa."
+    "description": "Doença oomiceto que causa lesões encharcadas em folhas e tubérculos. Historicamente devastadora, causou a Grande Fome Irlandesa.",
+    "crop": "Batata",
+    "commonName": "Requeima (Míldio)"
   },
   "Raspberry___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Framboesa",
+    "commonName": "Saudável"
   },
   "Soybean___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Soja",
+    "commonName": "Saudável"
   },
   "Squash___Powdery_mildew": {
     "scientific_name": "Podosphaera xanthii",
-    "description": "Doença fúngica que cria crescimento pulverulento branco nas folhas. Reduz a fotossíntese e a produção de frutos."
+    "description": "Doença fúngica que cria crescimento pulverulento branco nas folhas. Reduz a fotossíntese e a produção de frutos.",
+    "crop": "Abóbora",
+    "commonName": "Oídio das cucurbitáceas"
   },
   "Strawberry___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Morango",
+    "commonName": "Saudável"
   },
   "Strawberry___Leaf_scorch": {
     "scientific_name": "Diplocarpon earlianum",
-    "description": "Doença fúngica que causa manchas roxas nas folhas que ficam marrons. Reduz o vigor da planta e a produção de frutos."
+    "description": "Doença fúngica que causa manchas roxas nas folhas que ficam marrons. Reduz o vigor da planta e a produção de frutos.",
+    "crop": "Morango",
+    "commonName": "Mancha-foliar (Queima-das-folhas)"
   },
   "Tomato___Bacterial_spot": {
     "scientific_name": "Xanthomonas spp",
-    "description": "Doença bacteriana que causa manchas escuras em folhas, caules e frutos. Pode causar desfolha severa."
+    "description": "Doença bacteriana que causa manchas escuras em folhas, caules e frutos. Pode causar desfolha severa.",
+    "crop": "Tomate",
+    "commonName": "Mancha-bacteriana do tomateiro"
   },
   "Tomato___Early_blight": {
     "scientific_name": "Alternaria solani",
-    "description": "Doença fúngica que causa lesões em anéis concêntricos nas folhas. Afeta primeiro as folhas mais velhas e pode reduzir a produtividade."
+    "description": "Doença fúngica que causa lesões em anéis concêntricos nas folhas. Afeta primeiro as folhas mais velhas e pode reduzir a produtividade.",
+    "crop": "Tomate",
+    "commonName": "Pinta-preta (Requeima-precoce)"
   },
   "Tomato___healthy": {
     "scientific_name": "Saudável",
-    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável."
+    "description": "Nenhuma doença detectada. A planta apresenta crescimento normal e saudável.",
+    "crop": "Tomate",
+    "commonName": "Saudável"
   },
   "Tomato___Late_blight": {
     "scientific_name": "Phytophthora infestans",
-    "description": "Doença oomiceto que causa lesões encharcadas em folhas e frutos. Pode destruir culturas inteiras em dias."
+    "description": "Doença oomiceto que causa lesões encharcadas em folhas e frutos. Pode destruir culturas inteiras em dias.",
+    "crop": "Tomate",
+    "commonName": "Requeima (Míldio)"
   },
   "Tomato___Leaf_Mold": {
     "scientific_name": "Passalora fulva",
-    "description": "Doença fúngica que causa mofo verde-oliva na parte inferior das folhas. Comum em estufas com alta umidade."
+    "description": "Doença fúngica que causa mofo verde-oliva na parte inferior das folhas. Comum em estufas com alta umidade.",
+    "crop": "Tomate",
+    "commonName": "Mofo-foliar (Mancha-de-fulínea)"
   },
   "Tomato___Septoria_leaf_spot": {
     "scientific_name": "Septoria lycopersici",
-    "description": "Doença fúngica que causa numerosas manchas pequenas com bordas escuras nas folhas. Pode causar desfolha severa."
+    "description": "Doença fúngica que causa numerosas manchas pequenas com bordas escuras nas folhas. Pode causar desfolha severa.",
+    "crop": "Tomate",
+    "commonName": "Septoriose"
   },
   "Tomato___Spider_mites Two-spotted_spider_mite": {
     "scientific_name": "Tetranychus urticae",
-    "description": "Dano por praga que causa pontilhado e amarelecimento das folhas. Infestações pesadas produzem teias e podem matar as plantas."
+    "description": "Dano por praga que causa pontilhado e amarelecimento das folhas. Infestações pesadas produzem teias e podem matar as plantas.",
+    "crop": "Tomate",
+    "commonName": "Ácaro-rajado"
   },
   "Tomato___Target_Spot": {
     "scientific_name": "Corynespora cassiicola",
-    "description": "Doença fúngica que causa manchas marrons com anéis concêntricos em folhas e frutos. Pode causar desfolha significativa."
+    "description": "Doença fúngica que causa manchas marrons com anéis concêntricos em folhas e frutos. Pode causar desfolha significativa.",
+    "crop": "Tomate",
+    "commonName": "Mancha-alvo"
   },
   "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
     "scientific_name": "Begomovirus",
-    "description": "Doença viral transmitida por moscas-brancas. Causa enrolamento severo das folhas, amarelecimento e crescimento atrofiado."
+    "description": "Doença viral transmitida por moscas-brancas. Causa enrolamento severo das folhas, amarelecimento e crescimento atrofiado.",
+    "crop": "Tomate",
+    "commonName": "Vírus do enrolamento da folha amarela (TYLCV)"
   },
   "Tomato___Tomato_mosaic_virus": {
     "scientific_name": "Tobamovirus",
-    "description": "Doença viral que causa padrões mosqueados verde claro e escuro nas folhas. Reduz a qualidade dos frutos e a produtividade."
+    "description": "Doença viral que causa padrões mosqueados verde claro e escuro nas folhas. Reduz a qualidade dos frutos e a produtividade.",
+    "crop": "Tomate",
+    "commonName": "Vírus do mosaico do tomateiro (ToMV)"
   }
 }
