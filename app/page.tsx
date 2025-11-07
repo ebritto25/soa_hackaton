@@ -292,7 +292,7 @@ export default function Home() {
             className="mt-3 bg-gradient-to-r from-green-100 to-blue-100 border border-blue-200 rounded-xl p-3 text-left"
           >
             <h2 className="text-xl text-center text-black font-semibold">
-              Confiabilidade do modelo: {confiabilidade.toFixed(6)}
+              Confiabilidade do modelo: {(confiabilidade*100).toFixed(4)} %
             </h2>
           </motion.div>
         )}
